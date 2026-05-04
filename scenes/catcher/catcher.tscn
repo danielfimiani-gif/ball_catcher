@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://c6tpagb8sk8yd"]
+
+[ext_resource type="Script" uid="uid://dnwwkju2y22ep" path="res://scripts/catcher/catcher.gd" id="1_3fklf"]
+[ext_resource type="Texture2D" uid="uid://diomhpm341wc3" path="res://assets/sprites/items_spritesheet.png" id="2_o0we2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_puoja"]
+size = Vector2(42, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o0we2"]
+size = Vector2(36, 20)
+
+[node name="Catcher" type="CharacterBody2D" unique_id=1098566866]
+script = ExtResource("1_3fklf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1946644439]
+texture = ExtResource("2_o0we2")
+region_enabled = true
+region_rect = Rect2(197, 270.5, 54, 49.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1116695876]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_puoja")
+
+[node name="CatchArea" type="Area2D" parent="." unique_id=1826273504]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CatchArea" unique_id=2093546210]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_o0we2")
+
+[connection signal="area_entered" from="CatchArea" to="." method="_on_catch_area_area_entered"]

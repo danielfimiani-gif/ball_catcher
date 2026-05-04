@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bwaq3qv4d0ejt"]
+
+[ext_resource type="Texture2D" uid="uid://diomhpm341wc3" path="res://assets/sprites/items_spritesheet.png" id="1_6pa1j"]
+[ext_resource type="Script" uid="uid://kicjiga1fqd3" path="res://scripts/items/axe.gd" id="1_asnwc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_asnwc"]
+size = Vector2(26, 38)
+
+[node name="Axe" type="Area2D" unique_id=342968243 groups=["axes"]]
+script = ExtResource("1_asnwc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=395430499]
+texture = ExtResource("1_6pa1j")
+region_enabled = true
+region_rect = Rect2(141.90909, 212.18182, 26.363617, 39.99997)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1625365484]
+shape = SubResource("RectangleShape2D_asnwc")

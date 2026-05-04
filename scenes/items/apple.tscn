@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bw6hxnjlwbdfc"]
+
+[ext_resource type="Script" uid="uid://crh1ikyvmfo5v" path="res://scripts/items/item.gd" id="1_jgeia"]
+[ext_resource type="Texture2D" uid="uid://diomhpm341wc3" path="res://assets/sprites/items_spritesheet.png" id="1_xhhhv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jgeia"]
+radius = 17.117243
+
+[node name="Item" type="Area2D" unique_id=514113986 groups=["items"]]
+script = ExtResource("1_jgeia")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=279036903]
+texture = ExtResource("1_xhhhv")
+region_enabled = true
+region_rect = Rect2(205.5, 75.5, 34, 39)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1942902319]
+position = Vector2(1, 3)
+shape = SubResource("CircleShape2D_jgeia")
