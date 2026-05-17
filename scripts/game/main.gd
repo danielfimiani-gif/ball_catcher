@@ -21,6 +21,7 @@ var time_elapsed: float = 0.0
 func _ready() -> void:
 	GameState.reset()
 	spawn_timer.wait_time = initial_spawn_interval
+	AudioManager._play_music("game")
 	pass
 
 func _process(delta: float) -> void:

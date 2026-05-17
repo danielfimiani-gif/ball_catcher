@@ -7,6 +7,7 @@
 radius = 17.117243
 
 [node name="Item" type="Area2D" unique_id=514113986 groups=["items"]]
+z_index = 5
 script = ExtResource("1_jgeia")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=279036903]

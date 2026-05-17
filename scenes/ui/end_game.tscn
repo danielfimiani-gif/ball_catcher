@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dftop8ipehcp2"]
 
-[ext_resource type="Script" uid="uid://bcbnhomgbfaf2" path="res://scripts/ui/eng_game.gd" id="1_ewul1"]
+[ext_resource type="Script" uid="uid://dsg45th55qgtk" path="res://scripts/ui/end_game.gd" id="1_fnkk4"]
 
 [node name="EndGame" type="Control" unique_id=1082971815]
 layout_mode = 3
@@ -9,7 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ewul1")
+script = ExtResource("1_fnkk4")
 
 [node name="BackGround" type="ColorRect" parent="." unique_id=1180342770]
 layout_mode = 1
@@ -53,3 +53,10 @@ text = "Reintentar"
 [node name="MenuButton" type="Button" parent="VBoxContainer" unique_id=959032690]
 layout_mode = 2
 text = "Volver al Menú"
+
+[node name="NewHighScoreLabel" type="Label" parent="VBoxContainer" unique_id=1397176501]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "¡Nuevo Record!"
+horizontal_alignment = 1

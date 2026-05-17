@@ -7,7 +7,17 @@
 [ext_resource type="PackedScene" uid="uid://b8m73dmuysrcl" path="res://scenes/items/potion.tscn" id="4_tefeu"]
 [ext_resource type="PackedScene" uid="uid://bwaq3qv4d0ejt" path="res://scenes/items/axe.tscn" id="5_tefeu"]
 [ext_resource type="PackedScene" uid="uid://dftop8ipehcp2" path="res://scenes/ui/end_game.tscn" id="6_o6xl0"]
+[ext_resource type="Script" uid="uid://b1tvb43deppqw" path="res://scripts/game/parallax_shake.gd" id="7_dp3eg"]
+[ext_resource type="Texture2D" uid="uid://sfu6e36aefsx" path="res://assets/sprites/bg/game/1.png" id="7_jbj1t"]
+[ext_resource type="Script" uid="uid://cbqsbk8b5obhs" path="res://scripts/game/parallax_layers.gd" id="7_muem4"]
+[ext_resource type="Texture2D" uid="uid://dcssk7l3ui02n" path="res://assets/sprites/bg/game/2.png" id="8_muem4"]
 [ext_resource type="Script" uid="uid://b5k6kv2vpwo6l" path="res://scripts/ui/ui_controller.gd" id="8_tipki"]
+[ext_resource type="Texture2D" uid="uid://dp3380t6kjkx3" path="res://assets/sprites/bg/game/3.png" id="9_dp3eg"]
+[ext_resource type="Texture2D" uid="uid://b6j8frtnglo1d" path="res://assets/sprites/bg/game/5.png" id="10_0ld40"]
+[ext_resource type="Texture2D" uid="uid://d2g7nfrdn24of" path="res://assets/sprites/bg/game/6.png" id="11_gqmmt"]
+[ext_resource type="Texture2D" uid="uid://b2ge4ells36xi" path="res://assets/sprites/bg/game/7.png" id="12_yc10j"]
+[ext_resource type="Texture2D" uid="uid://bxpgjji6hcwsh" path="res://assets/sprites/bg/game/8.png" id="13_jscy8"]
+[ext_resource type="Script" uid="uid://bbej0k8on1440" path="res://scripts/game/screen_shake.gd" id="17_muem4"]
 
 [node name="Main" type="Node2D" unique_id=700889515]
 script = ExtResource("1_o6xl0")
@@ -15,14 +25,118 @@ item_scenes = Array[PackedScene]([ExtResource("2_tbgi4"), ExtResource("2_sugp2")
 axe_scene = ExtResource("5_tefeu")
 end_game_scene = ExtResource("6_o6xl0")
 
-[node name="Catcher" parent="." unique_id=1098566866 instance=ExtResource("1_o5qli")]
-position = Vector2(589, 596)
+[node name="BackgorundCanvas" type="CanvasLayer" parent="." unique_id=1854262324]
+layer = -1
+script = ExtResource("7_dp3eg")
+
+[node name="ParallaxLayers" type="Node2D" parent="BackgorundCanvas" unique_id=1775798488]
+z_index = -10
+scale = Vector2(2, 2)
+script = ExtResource("7_muem4")
+catcher_path = NodePath("../../Catcher")
+smoothing_speed = 2.0
+
+[node name="Layer1" type="Parallax2D" parent="BackgorundCanvas/ParallaxLayers" unique_id=603222697]
+scroll_scale = Vector2(0, 0)
+scroll_offset = Vector2(0, -1)
+repeat_size = Vector2(576, 0)
+repeat_times = 2
+follow_viewport = false
+
+[node name="Sprite2D" type="Sprite2D" parent="BackgorundCanvas/ParallaxLayers/Layer1" unique_id=202440247]
+z_index = -10
+position = Vector2(-3, 3)
+texture = ExtResource("7_jbj1t")
+centered = false
+
+[node name="Layer2" type="Parallax2D" parent="BackgorundCanvas/ParallaxLayers" unique_id=1504466145]
+scroll_scale = Vector2(0, 0)
+scroll_offset = Vector2(0, -1)
+repeat_size = Vector2(576, 0)
+repeat_times = 2
+follow_viewport = false
+
+[node name="Sprite2D" type="Sprite2D" parent="BackgorundCanvas/ParallaxLayers/Layer2" unique_id=1786169131]
+z_index = -10
+position = Vector2(-3, 3)
+texture = ExtResource("8_muem4")
+centered = false
+
+[node name="Layer3" type="Parallax2D" parent="BackgorundCanvas/ParallaxLayers" unique_id=549327421]
+scroll_scale = Vector2(0, 0)
+scroll_offset = Vector2(0, -1)
+repeat_size = Vector2(576, 0)
+repeat_times = 2
+follow_viewport = false
+
+[node name="Sprite2D" type="Sprite2D" parent="BackgorundCanvas/ParallaxLayers/Layer3" unique_id=1020182962]
+z_index = -10
+position = Vector2(-3, 3)
+texture = ExtResource("9_dp3eg")
+centered = false
+
+[node name="Layer4" type="Parallax2D" parent="BackgorundCanvas/ParallaxLayers" unique_id=357137684]
+scroll_scale = Vector2(0, 0)
+scroll_offset = Vector2(0, -1)
+repeat_size = Vector2(576, 0)
+repeat_times = 2
+follow_viewport = false
+
+[node name="Sprite2D" type="Sprite2D" parent="BackgorundCanvas/ParallaxLayers/Layer4" unique_id=259068732]
+z_index = -10
+position = Vector2(-3, 3)
+texture = ExtResource("10_0ld40")
+centered = false
+
+[node name="Layer5" type="Parallax2D" parent="BackgorundCanvas/ParallaxLayers" unique_id=757826291]
+scroll_scale = Vector2(0, 0)
+scroll_offset = Vector2(0, -1)
+repeat_size = Vector2(576, 0)
+repeat_times = 2
+follow_viewport = false
+
+[node name="Sprite2D" type="Sprite2D" parent="BackgorundCanvas/ParallaxLayers/Layer5" unique_id=1142578593]
+z_index = -10
+position = Vector2(-3, 3)
+texture = ExtResource("11_gqmmt")
+centered = false
+
+[node name="Layer6" type="Parallax2D" parent="BackgorundCanvas/ParallaxLayers" unique_id=2010489887]
+scroll_scale = Vector2(0, 0)
+scroll_offset = Vector2(0, -1)
+repeat_size = Vector2(576, 0)
+repeat_times = 2
+follow_viewport = false
+
+[node name="Sprite2D" type="Sprite2D" parent="BackgorundCanvas/ParallaxLayers/Layer6" unique_id=6528451]
+z_index = -10
+position = Vector2(-3, 3)
+texture = ExtResource("12_yc10j")
+centered = false
+
+[node name="Layer7" type="Parallax2D" parent="BackgorundCanvas/ParallaxLayers" unique_id=255255597]
+scroll_scale = Vector2(0, 0)
+scroll_offset = Vector2(0, -1)
+repeat_size = Vector2(576, 0)
+repeat_times = 2
+follow_viewport = false
+
+[node name="Sprite2D" type="Sprite2D" parent="BackgorundCanvas/ParallaxLayers/Layer7" unique_id=1808316737]
+z_index = -10
+position = Vector2(-3, 3)
+texture = ExtResource("13_jscy8")
+centered = false
 
 [node name="SpawnTimer" type="Timer" parent="." unique_id=101358410]
 wait_time = 1.5
 autostart = true
 
+[node name="Catcher" parent="." unique_id=1098566866 instance=ExtResource("1_o5qli")]
+z_index = 10
+position = Vector2(589, 596)
+
 [node name="UI" type="CanvasLayer" parent="." unique_id=1705677011]
+layer = 0
 script = ExtResource("8_tipki")
 
 [node name="ScoreLabel" type="Label" parent="UI" unique_id=1327613703]
@@ -44,5 +158,9 @@ offset_bottom = 68.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 35
 text = "Lifes : 3 / 3"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=680120023]
+anchor_mode = 0
+script = ExtResource("17_muem4")
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
