@@ -1,7 +1,9 @@
 extends CanvasLayer
 
-@onready var score_label: Label = $ScoreLabel
+@onready var score_label: Label = $ScoreContainer/ScoreLabel
 @onready var hearts_container: HBoxContainer = $HeartsContainer
+@onready var hook_icon: TextureRect = $HookIndicator/HookIcon
+@onready var cooldown_bar: ProgressBar = $HookIndicator/ProgressBar
 @onready var hearts: Array[TextureRect] = [
 	$HeartsContainer/Heart1,
 	$HeartsContainer/Heart2,
@@ -18,6 +20,10 @@ func _ready() -> void:
 
 	_on_lives_changed(GameState.lives)
 	_on_score_changed(GameState.score)
+
+	Events.hook_cooldown_changed.connect(_on_hook_cooldown_changed)
+	cooldown_bar.value = 100
+	hook_icon.modulate = Color.WHITE
 	pass
 
 func _on_score_changed(new_value: int) -> void:
@@ -36,6 +42,19 @@ func _on_lives_changed(new_value: int) -> void:
 		_show_all_hearts()
 
 	previous_lives = new_value
+	pass
+
+func _on_hook_cooldown_changed(remaining: float, total: float) -> void:
+	var progress: float = 0.0
+	if total > 0.0:
+		progress = 1.0 - (remaining / total)
+	
+	cooldown_bar.value = progress * 100.0
+
+	if remaining <= 0.0:
+		hook_icon.modulate = Color.WHITE
+	else:
+		hook_icon.modulate = Color(0.5, 0.5, 0.5)
 	pass
 
 func _pop_label(label: Label) -> void:

@@ -75,9 +75,9 @@ Las fases están ordenadas por costo/impacto. No es obligatorio hacerlas en orde
 
 ## Fase 7 — Refinamientos finales
 
-- [ ] Cuenta regresiva "3, 2, 1, GO!" al iniciar partida
+- [x] Cuenta regresiva "3, 2, 1, GO!" al iniciar partida (con SFX + tween de scale + fade)
 - [x] Vidas como íconos (corazones) en vez de texto "Lives: 3"
-- [ ] Ícono al lado del Score (estrella, moneda, etc.)
+- [x] Ícono al lado del Score (moneda dorada en HBoxContainer con pop unificado)
 - [ ] Pulido del HUD (alineación, márgenes, jerarquía visual)
 
 ## Fase 8 — Mecánicas diferenciales (gameplay)

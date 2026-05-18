@@ -1,9 +1,11 @@
 extends CharacterBody2D
 
-# Movement
+@export_group("Movement")
 @export var speed: float = 400.0
 @export var margin: float = 30.0
-# Effects
+@export var hook_cooldown: float = 1.7
+
+@export_group("Effects")
 @export var damage_flash_color: Color = Color(1.8, 0.4, 0.4, 1.0)
 @export var damage_flash_in: float = 0.05
 @export var damage_flash_out: float = 0.25
@@ -13,14 +15,12 @@ extends CharacterBody2D
 @export var wall_stretch_factor: Vector2 = Vector2(1.3, 0.7)
 @export var squash_in: float = 0.08
 @export var squash_out: float = 0.25
-# Particles
+
+@export_group("PackedScenes")
 @export var catch_particles_scene: PackedScene
 @export var damage_particles_scene: PackedScene
-# Combo text
 @export var floating_text_scene: PackedScene
-# Hook
 @export var hook_scene: PackedScene
-@export var hook_cooldown: float = 1.7
 
 @onready var collision: CollisionShape2D = $CollisionShape2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -52,6 +52,9 @@ func _process(delta: float) -> void:
 			boost_timer = 0.0
 	if hook_cooldown_remaining > 0.0:
 		hook_cooldown_remaining -= delta
+		if hook_cooldown_remaining < 0.0:
+			hook_cooldown_remaining = 0.0
+		Events.hook_cooldown_changed.emit(hook_cooldown_remaining, hook_cooldown)
 	pass
 
 func _physics_process(_delta: float) -> void:
@@ -93,6 +96,7 @@ func _try_shoot_hook() -> void:
 	
 	hook._shoot(self , get_global_mouse_position())
 	hook_cooldown_remaining = hook_cooldown
+	Events.hook_cooldown_changed.emit(hook_cooldown, hook_cooldown)
 	pass
 
 func _on_hook_item_returned(item: Area2D) -> void:

@@ -17,16 +17,24 @@ extends Node2D
 @export var power_up_probability: float = 0.05
 
 @onready var spawn_timer: Timer = $SpawnTimer
+@onready var countdown_label: Label = $UI/CountDownLabel
 
 var time_elapsed: float = 0.0
+var countdown_running: bool = true
+var countdown_tween: Tween
 
 func _ready() -> void:
 	GameState.reset()
 	spawn_timer.wait_time = initial_spawn_interval
+	spawn_timer.stop()
 	AudioManager._play_music("game")
+	_run_countdown()
 	pass
 
 func _process(delta: float) -> void:
+	if countdown_running:
+		return
+
 	time_elapsed += delta
 	var t: float = clamp(time_elapsed / difficulty_ramp_seconds, 0.0, 1.0)
 	spawn_timer.wait_time = lerp(initial_spawn_interval, min_spawn_interval, t)
@@ -50,4 +58,33 @@ func _on_spawn_timer_timeout() -> void:
 		item.fall_speed = current_fall_speed
 	item.global_position = Vector2(randf_range(50, 1100), -20)
 	add_child(item)
+	pass
+
+func _run_countdown() -> void:
+	var numbers: Array[String] = ["3", "2", "1", "GO!"]
+	for number in numbers:
+		countdown_label.text = number
+		countdown_label.pivot_offset = countdown_label.size / 2.0
+		countdown_label.scale = Vector2(2.5, 2.5)
+		countdown_label.modulate.a = 1.0
+		AudioManager._play_sfx("click")
+		_animate_countdown_number()
+		await get_tree().create_timer(0.7).timeout
+	countdown_running = false
+	spawn_timer.start()
+	pass
+       
+func _animate_countdown_number() -> void:
+	if countdown_tween:
+		countdown_tween.kill()
+	countdown_tween = create_tween().set_parallel()
+
+	var tween := create_tween().set_parallel()
+	var target_scale := Vector2.ONE
+	var scale_anim := tween.tween_property(countdown_label, "scale", target_scale, 0.3)
+	scale_anim.set_trans(Tween.TRANS_BACK)
+	scale_anim.set_ease(Tween.EASE_OUT)
+	var fade_anim := tween.tween_property(countdown_label, "modulate:a", 0.0, 0.5)
+	fade_anim.set_trans(Tween.TRANS_QUAD)
+	fade_anim.set_ease(Tween.EASE_IN)
 	pass

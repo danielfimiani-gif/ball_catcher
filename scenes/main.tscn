@@ -21,6 +21,8 @@
 [ext_resource type="Script" uid="uid://bbej0k8on1440" path="res://scripts/game/screen_shake.gd" id="17_muem4"]
 [ext_resource type="Texture2D" uid="uid://6j6tkgie0c1q" path="res://assets/sprites/ui/hearth.png" id="18_0ld40"]
 [ext_resource type="Theme" uid="uid://c44ksbtmn3suq" path="res://assets/themes/main_theme.tres" id="18_gqmmt"]
+[ext_resource type="Texture2D" uid="uid://bvdoi6a0le4wo" path="res://assets/sprites/ui/coin.png" id="19_jscy8"]
+[ext_resource type="Texture2D" uid="uid://tth4d6lg5n71" path="res://assets/sprites/power_ups/hook.png" id="22_pm3ni"]
 
 [node name="Main" type="Node2D" unique_id=700889515]
 script = ExtResource("1_o6xl0")
@@ -143,11 +145,18 @@ position = Vector2(589, 596)
 layer = 0
 script = ExtResource("8_tipki")
 
-[node name="ScoreLabel" type="Label" parent="UI" unique_id=1327613703]
-offset_left = 60.0
-offset_top = 16.0
-offset_right = 201.0
-offset_bottom = 65.0
+[node name="ScoreContainer" type="HBoxContainer" parent="UI" unique_id=121806112]
+offset_left = 53.51
+offset_top = 29.215
+offset_right = 232.51
+offset_bottom = 72.215
+
+[node name="TextureRect" type="TextureRect" parent="UI/ScoreContainer" unique_id=1755298266]
+layout_mode = 2
+texture = ExtResource("19_jscy8")
+
+[node name="ScoreLabel" type="Label" parent="UI/ScoreContainer" unique_id=1327613703]
+layout_mode = 2
 theme = ExtResource("18_gqmmt")
 theme_override_font_sizes/font_size = 35
 text = "Score : 0"
@@ -174,6 +183,47 @@ texture = ExtResource("18_0ld40")
 [node name="Heart3" type="TextureRect" parent="UI/HeartsContainer" unique_id=407623392]
 layout_mode = 2
 texture = ExtResource("18_0ld40")
+
+[node name="CountDownLabel" type="Label" parent="UI" unique_id=1541200800]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("18_gqmmt")
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 140
+text = "Go! "
+
+[node name="HookIndicator" type="HBoxContainer" parent="UI" unique_id=1256060408]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 47.36
+offset_top = -57.705017
+offset_right = 143.36
+offset_bottom = -25.705017
+grow_vertical = 0
+
+[node name="HookIcon" type="TextureRect" parent="UI/HookIndicator" unique_id=2006862299]
+custom_minimum_size = Vector2(42.445, 32)
+layout_mode = 2
+texture = ExtResource("22_pm3ni")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ProgressBar" type="ProgressBar" parent="UI/HookIndicator" unique_id=482677242]
+custom_minimum_size = Vector2(66.57, 32)
+layout_mode = 2
+value = 100.0
+show_percentage = false
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=680120023]
 anchor_mode = 0
