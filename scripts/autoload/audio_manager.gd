@@ -35,6 +35,7 @@ func _ready() -> void:
     music_player = AudioStreamPlayer.new()
     music_player.bus = "Music"
     add_child(music_player)
+    process_mode = Node.PROCESS_MODE_ALWAYS
     pass
 
 func _play_music(track_name: String) -> void:

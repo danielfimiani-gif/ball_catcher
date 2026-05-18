@@ -78,13 +78,12 @@ func _animate_countdown_number() -> void:
 	if countdown_tween:
 		countdown_tween.kill()
 	countdown_tween = create_tween().set_parallel()
-
-	var tween := create_tween().set_parallel()
+	
 	var target_scale := Vector2.ONE
-	var scale_anim := tween.tween_property(countdown_label, "scale", target_scale, 0.3)
+	var scale_anim := countdown_tween.tween_property(countdown_label, "scale", target_scale, 0.3)
 	scale_anim.set_trans(Tween.TRANS_BACK)
 	scale_anim.set_ease(Tween.EASE_OUT)
-	var fade_anim := tween.tween_property(countdown_label, "modulate:a", 0.0, 0.5)
+	var fade_anim := countdown_tween.tween_property(countdown_label, "modulate:a", 0.0, 0.5)
 	fade_anim.set_trans(Tween.TRANS_QUAD)
 	fade_anim.set_ease(Tween.EASE_IN)
 	pass

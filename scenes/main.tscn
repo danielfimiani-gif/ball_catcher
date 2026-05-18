@@ -23,6 +23,8 @@
 [ext_resource type="Theme" uid="uid://c44ksbtmn3suq" path="res://assets/themes/main_theme.tres" id="18_gqmmt"]
 [ext_resource type="Texture2D" uid="uid://bvdoi6a0le4wo" path="res://assets/sprites/ui/coin.png" id="19_jscy8"]
 [ext_resource type="Texture2D" uid="uid://tth4d6lg5n71" path="res://assets/sprites/power_ups/hook.png" id="22_pm3ni"]
+[ext_resource type="Script" uid="uid://c3s07qhebtj1c" path="res://scripts/ui/pause_menu.gd" id="23_og1vs"]
+[ext_resource type="Script" uid="uid://bve46bmhkg7g7" path="res://scripts/ui/animated_button.gd" id="23_y6deb"]
 
 [node name="Main" type="Node2D" unique_id=700889515]
 script = ExtResource("1_o6xl0")
@@ -224,6 +226,67 @@ custom_minimum_size = Vector2(66.57, 32)
 layout_mode = 2
 value = 100.0
 show_percentage = false
+
+[node name="PauseMenu" type="Control" parent="UI" unique_id=1131939221]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("18_gqmmt")
+script = ExtResource("23_og1vs")
+
+[node name="Dimmer" type="ColorRect" parent="UI/PauseMenu" unique_id=216439734]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.82500005)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PauseMenu" unique_id=760855837]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="UI/PauseMenu/VBoxContainer" unique_id=1118712131]
+layout_mode = 2
+theme = ExtResource("18_gqmmt")
+theme_override_font_sizes/font_size = 80
+text = "Pause"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="UI/PauseMenu/VBoxContainer" unique_id=660036530]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Resume"
+script = ExtResource("23_y6deb")
+
+[node name="MenuButton" type="Button" parent="UI/PauseMenu/VBoxContainer" unique_id=1565985763]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Main Menu"
+script = ExtResource("23_y6deb")
+
+[node name="ExitButton" type="Button" parent="UI/PauseMenu/VBoxContainer" unique_id=1029020422]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Exit"
+script = ExtResource("23_y6deb")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=680120023]
 anchor_mode = 0

@@ -13,6 +13,7 @@ var fade_rect: ColorRect
 
 func _ready() -> void:
     _setup_fade_overlay()
+    process_mode = Node.PROCESS_MODE_ALWAYS
     pass
 
 func _setup_fade_overlay() -> void:

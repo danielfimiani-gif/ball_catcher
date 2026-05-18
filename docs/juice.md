@@ -78,7 +78,8 @@ Las fases están ordenadas por costo/impacto. No es obligatorio hacerlas en orde
 - [x] Cuenta regresiva "3, 2, 1, GO!" al iniciar partida (con SFX + tween de scale + fade)
 - [x] Vidas como íconos (corazones) en vez de texto "Lives: 3"
 - [x] Ícono al lado del Score (moneda dorada en HBoxContainer con pop unificado)
-- [ ] Pulido del HUD (alineación, márgenes, jerarquía visual)
+- [x] Pulido del HUD (refactor de ScoreContainer + ícono coin + nombrado consistente)
+- [x] Indicador visual de cooldown del hook (HookIcon + ProgressBar + tint gris en cooldown)
 
 ## Fase 8 — Mecánicas diferenciales (gameplay)
 
