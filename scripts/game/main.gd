@@ -2,6 +2,7 @@ extends Node2D
 
 @export_group("Instances")
 @export var item_scenes: Array[PackedScene]
+@export var powerup_scenes: Array[PackedScene]
 @export var axe_scene: PackedScene
 @export var end_game_scene: PackedScene
 
@@ -13,6 +14,7 @@ extends Node2D
 @export var initial_axe_probability: float = 0.10
 @export var max_axe_probability: float = 0.5
 @export var difficulty_ramp_seconds: float = 60.0
+@export var power_up_probability: float = 0.05
 
 @onready var spawn_timer: Timer = $SpawnTimer
 
@@ -36,13 +38,16 @@ func _on_spawn_timer_timeout() -> void:
 	var current_fall_speed: float = lerp(initial_fall_speed, max_fall_speed, t)
 
 	var scene: PackedScene
-	if randf() < current_axe_prob:
+	if not powerup_scenes.is_empty() and randf() < power_up_probability:
+		scene = powerup_scenes.pick_random()
+	elif randf() < current_axe_prob:
 		scene = axe_scene
 	else:
 		scene = item_scenes.pick_random()
 
 	var item = scene.instantiate()
-	item.fall_speed = current_fall_speed
+	if "fall_speed" in item:
+		item.fall_speed = current_fall_speed
 	item.global_position = Vector2(randf_range(50, 1100), -20)
 	add_child(item)
 	pass

@@ -40,29 +40,30 @@ Las fases están ordenadas por costo/impacto. No es obligatorio hacerlas en orde
 
 ## Fase 3 — Partículas
 
-- [ ] Partículas al atrapar item (verde/dorado, suave) — `CPUParticles2D` o `GPUParticles2D`
-- [ ] Partículas al recibir hacha (rojo, agresivo + más cantidad)
+- [x] Partículas al atrapar item (verde/dorado, suave) — `CPUParticles2D` (GL Compatibility no soporta GPU)
+- [x] Partículas al recibir hacha (rojo, agresivo + más cantidad)
+- [x] Escena reusable + auto-free al terminar (`auto_free_particles.gd`)
 - [ ] Variante de partículas por tipo de item (opcional)
 - [ ] Polish de tweaks (cantidad, dispersión, vida útil, gravity)
 
 ## Fase 4 — Microinteracciones
 
-- [ ] Floating combo text "+10" al atrapar (label que sube y se desvanece)
-- [ ] Squash & stretch del catcher al moverse
-- [ ] Squash al atrapar item
-- [ ] Sacudida del HUD de vidas al recibir daño
-- [ ] Squash horizontal del catcher al chocar con el borde de la pantalla
-- [ ] Mini screen shake al chocar con el borde (muy sutil)
-- [ ] Partícula de "polvo/rebote" al chocar con el borde
+- [x] Floating combo text "+10" / "-1" al atrapar (label que sube y se desvanece)
+- [x] Squash & stretch del catcher al moverse (al arrancar o cambiar dirección)
+- [x] Squash al atrapar item / stretch al recibir hacha
+- [x] HUD de vidas reemplazado por corazones animados (pop + scale 0 + fade al perder)
+- [x] Squash horizontal del catcher al chocar con el borde de la pantalla
+- [x] Mini screen shake al chocar con el borde (muy sutil)
+- [ ] Partícula de "polvo/rebote" al chocar con el borde (opcional, pendiente)
 
 ## Fase 5 — UI Pulida
 
 - [ ] Transición fade entre escenas (centralizada en `SceneManager`)
 - [ ] Botones animados (hover: escala + tint, click: squash + sound)
-- [ ] Tipografía custom (importar fuente desde Google Fonts)
-- [ ] Animación de entrada del título del menú (slide/fade)
-- [ ] Mejorar animación del Score al subir (más vistosa)
-- [ ] Botón con focus visible para navegación con teclado/joystick
+- [x] Tipografía custom (Pixelify Sans desde Google Fonts) + theme global
+- [x] Animación de entrada del título del menú (pop + stagger cascade de botones e info)
+- [x] Mejorar animación del Score al subir (squash anisotrópico + flash dorado + rebote)
+- [x] Botón con focus visible para navegación con teclado/joystick (hover+focus unificados + auto-focus al entrar)
 
 ## Fase 6 — Visual / Assets
 
@@ -75,7 +76,7 @@ Las fases están ordenadas por costo/impacto. No es obligatorio hacerlas en orde
 ## Fase 7 — Refinamientos finales
 
 - [ ] Cuenta regresiva "3, 2, 1, GO!" al iniciar partida
-- [ ] Vidas como íconos (corazones) en vez de texto "Lives: 3"
+- [x] Vidas como íconos (corazones) en vez de texto "Lives: 3"
 - [ ] Ícono al lado del Score (estrella, moneda, etc.)
 - [ ] Pulido del HUD (alineación, márgenes, jerarquía visual)
 

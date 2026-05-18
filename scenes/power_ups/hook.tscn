@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cbr76abi87ccp"]
+
+[ext_resource type="Script" uid="uid://xag6eoojsu8q" path="res://scripts/power_ups/hook.gd" id="1_bx5tt"]
+[ext_resource type="Texture2D" uid="uid://tth4d6lg5n71" path="res://assets/sprites/power_ups/hook.png" id="1_vxbad"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vxbad"]
+radius = 17.029387
+
+[node name="Hook" type="Node2D" unique_id=1729286467]
+script = ExtResource("1_bx5tt")
+
+[node name="Rope" type="Line2D" parent="." unique_id=1148851519]
+width = 3.0
+default_color = Color(0.7021107, 0.5563933, 0.39588127, 1)
+
+[node name="Head" type="Area2D" parent="." unique_id=1368131613]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Head" unique_id=335884351]
+shape = SubResource("CircleShape2D_vxbad")
+
+[node name="Sprite2D" type="Sprite2D" parent="Head" unique_id=626162593]
+rotation = 0.7853982
+texture = ExtResource("1_vxbad")

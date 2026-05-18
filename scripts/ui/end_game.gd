@@ -11,11 +11,11 @@ func _ready() -> void:
     var tween := create_tween()
     tween.tween_property(self , "modulate:a", 1.0, 0.4)
     
-    if GameState.last_result == GameState.Result.VICTORY:
-        title_label.text = "¡Ganaste!"
+    if GameState.was_new_highscore:
+        title_label.text = "¡Buena Partida!"
         AudioManager._play_sfx("victory")
     else:
-        title_label.text = "¡Perdiste!"
+        title_label.text = "¡Game Over!"
         AudioManager._play_sfx("game_over")
     
     score_label.text = "Score : " + str(GameState.score)

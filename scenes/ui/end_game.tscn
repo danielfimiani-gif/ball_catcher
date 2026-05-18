@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://dftop8ipehcp2"]
 
 [ext_resource type="Script" uid="uid://dsg45th55qgtk" path="res://scripts/ui/end_game.gd" id="1_fnkk4"]
+[ext_resource type="Theme" uid="uid://c44ksbtmn3suq" path="res://assets/themes/main_theme.tres" id="1_gpnx6"]
+[ext_resource type="Script" uid="uid://bve46bmhkg7g7" path="res://scripts/ui/animated_button.gd" id="3_ewul1"]
 
 [node name="EndGame" type="Control" unique_id=1082971815]
 layout_mode = 3
@@ -9,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_gpnx6")
 script = ExtResource("1_fnkk4")
 
 [node name="BackGround" type="ColorRect" parent="." unique_id=1180342770]
@@ -49,10 +52,12 @@ horizontal_alignment = 1
 [node name="RetryButton" type="Button" parent="VBoxContainer" unique_id=1644894685]
 layout_mode = 2
 text = "Reintentar"
+script = ExtResource("3_ewul1")
 
 [node name="MenuButton" type="Button" parent="VBoxContainer" unique_id=959032690]
 layout_mode = 2
 text = "Volver al Menú"
+script = ExtResource("3_ewul1")
 
 [node name="NewHighScoreLabel" type="Label" parent="VBoxContainer" unique_id=1397176501]
 layout_mode = 2

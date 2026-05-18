@@ -8,31 +8,20 @@ signal score_changed(new_score: int)
 signal lives_changed(new_lives: int)
 signal highscore_changed(new_highscore: int)
 
-enum Result {
-	VICTORY,
-	DEFEAT
-}
-
 const STARTING_LIVES: int = 3
-const TARGET_SCORE: int = 500
 
-var last_result: Result = Result.DEFEAT
 var was_new_highscore: bool = false
 
 var score: int = 0:
 	set(value):
 		score = max(0, value)
 		score_changed.emit(score)
-		if score >= TARGET_SCORE:
-			last_result = Result.VICTORY
-			_on_game_ended()
 
 var lives: int = STARTING_LIVES:
 	set(value):
 		lives = max(0, value)
 		lives_changed.emit(lives)
 		if lives <= 0:
-			last_result = Result.DEFEAT
 			_on_game_ended()
 
 var highscore: int = 0:
@@ -55,9 +44,8 @@ func _on_game_ended() -> void:
 	if was_new_highscore:
 		highscore = score
 		_save_highscore()
-	
-	var intensity: float = 0.4 if last_result == Result.VICTORY else 0.7
-	Events.screen_shake_requested.emit(intensity)
+
+	Events.screen_shake_requested.emit(0.7)
 
 	await get_tree().create_timer(0.4).timeout
 	SceneManager.switch_scene("end_game")

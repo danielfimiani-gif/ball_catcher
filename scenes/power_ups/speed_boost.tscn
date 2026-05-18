@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bbeghi5b8m4in"]
+
+[ext_resource type="Texture2D" uid="uid://b5xrk2k0mtvth" path="res://assets/sprites/power_ups/lightning.png" id="1_dkyfy"]
+[ext_resource type="Script" uid="uid://kxfjas088rko" path="res://scripts/power_ups/power_up.gd" id="1_yqtso"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yqtso"]
+size = Vector2(28, 38)
+
+[node name="SpeedBoost" type="Area2D" unique_id=125987552 groups=["power_ups"]]
+script = ExtResource("1_yqtso")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1126428934]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_dkyfy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1607804381]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_yqtso")

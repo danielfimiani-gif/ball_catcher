@@ -3,6 +3,7 @@
     "editor.formatOnSave": true,
     "cSpell.language": "es, en",
     "cSpell.words": [
+        "elif",
         "lerp",
         "onready",
         "randf"

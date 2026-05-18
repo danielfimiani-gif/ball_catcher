@@ -6,10 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://cwk6uwa10hqne" path="res://scenes/items/egg.tscn" id="2_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://b8m73dmuysrcl" path="res://scenes/items/potion.tscn" id="4_tefeu"]
 [ext_resource type="PackedScene" uid="uid://bwaq3qv4d0ejt" path="res://scenes/items/axe.tscn" id="5_tefeu"]
+[ext_resource type="PackedScene" uid="uid://bbeghi5b8m4in" path="res://scenes/power_ups/speed_boost.tscn" id="5_yc10j"]
 [ext_resource type="PackedScene" uid="uid://dftop8ipehcp2" path="res://scenes/ui/end_game.tscn" id="6_o6xl0"]
-[ext_resource type="Script" uid="uid://b1tvb43deppqw" path="res://scripts/game/parallax_shake.gd" id="7_dp3eg"]
+[ext_resource type="Script" uid="uid://b1tvb43deppqw" path="res://scripts/effects/parallax_shake.gd" id="7_dp3eg"]
 [ext_resource type="Texture2D" uid="uid://sfu6e36aefsx" path="res://assets/sprites/bg/game/1.png" id="7_jbj1t"]
-[ext_resource type="Script" uid="uid://cbqsbk8b5obhs" path="res://scripts/game/parallax_layers.gd" id="7_muem4"]
+[ext_resource type="Script" uid="uid://cbqsbk8b5obhs" path="res://scripts/effects/parallax_layers.gd" id="7_muem4"]
 [ext_resource type="Texture2D" uid="uid://dcssk7l3ui02n" path="res://assets/sprites/bg/game/2.png" id="8_muem4"]
 [ext_resource type="Script" uid="uid://b5k6kv2vpwo6l" path="res://scripts/ui/ui_controller.gd" id="8_tipki"]
 [ext_resource type="Texture2D" uid="uid://dp3380t6kjkx3" path="res://assets/sprites/bg/game/3.png" id="9_dp3eg"]
@@ -18,10 +19,13 @@
 [ext_resource type="Texture2D" uid="uid://b2ge4ells36xi" path="res://assets/sprites/bg/game/7.png" id="12_yc10j"]
 [ext_resource type="Texture2D" uid="uid://bxpgjji6hcwsh" path="res://assets/sprites/bg/game/8.png" id="13_jscy8"]
 [ext_resource type="Script" uid="uid://bbej0k8on1440" path="res://scripts/game/screen_shake.gd" id="17_muem4"]
+[ext_resource type="Texture2D" uid="uid://6j6tkgie0c1q" path="res://assets/sprites/ui/hearth.png" id="18_0ld40"]
+[ext_resource type="Theme" uid="uid://c44ksbtmn3suq" path="res://assets/themes/main_theme.tres" id="18_gqmmt"]
 
 [node name="Main" type="Node2D" unique_id=700889515]
 script = ExtResource("1_o6xl0")
 item_scenes = Array[PackedScene]([ExtResource("2_tbgi4"), ExtResource("2_sugp2"), ExtResource("4_tefeu")])
+powerup_scenes = Array[PackedScene]([ExtResource("5_yc10j")])
 axe_scene = ExtResource("5_tefeu")
 end_game_scene = ExtResource("6_o6xl0")
 
@@ -140,24 +144,36 @@ layer = 0
 script = ExtResource("8_tipki")
 
 [node name="ScoreLabel" type="Label" parent="UI" unique_id=1327613703]
-offset_left = 16.0
+offset_left = 60.0
 offset_top = 16.0
-offset_right = 157.0
+offset_right = 201.0
 offset_bottom = 65.0
+theme = ExtResource("18_gqmmt")
 theme_override_font_sizes/font_size = 35
 text = "Score : 0"
 
-[node name="LivesLabel" type="Label" parent="UI" unique_id=12246447]
+[node name="HeartsContainer" type="HBoxContainer" parent="UI" unique_id=1574450158]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -200.0
-offset_top = 19.0
-offset_right = -21.0
-offset_bottom = 68.0
+offset_left = -322.0
+offset_right = -186.0
+offset_bottom = 64.0
 grow_horizontal = 0
-theme_override_font_sizes/font_size = 35
-text = "Lifes : 3 / 3"
+scale = Vector2(2, 2)
+theme_override_constants/separation = -28
+
+[node name="Heart1" type="TextureRect" parent="UI/HeartsContainer" unique_id=1903539597]
+layout_mode = 2
+texture = ExtResource("18_0ld40")
+
+[node name="Heart2" type="TextureRect" parent="UI/HeartsContainer" unique_id=528019994]
+layout_mode = 2
+texture = ExtResource("18_0ld40")
+
+[node name="Heart3" type="TextureRect" parent="UI/HeartsContainer" unique_id=407623392]
+layout_mode = 2
+texture = ExtResource("18_0ld40")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=680120023]
 anchor_mode = 0

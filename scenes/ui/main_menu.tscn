@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://b15bx6r4c4day"]
 
+[ext_resource type="Theme" uid="uid://c44ksbtmn3suq" path="res://assets/themes/main_theme.tres" id="1_1g8jr"]
 [ext_resource type="Script" uid="uid://demiou2v37tpk" path="res://scripts/ui/main_menu.gd" id="1_sl1te"]
 [ext_resource type="PackedScene" uid="uid://bot5rixp7u8mx" path="res://scenes/main.tscn" id="2_fe2o3"]
+[ext_resource type="Script" uid="uid://bve46bmhkg7g7" path="res://scripts/ui/animated_button.gd" id="4_m1kxf"]
+[ext_resource type="Texture2D" uid="uid://h4c7jpqfl48o" path="res://assets/sprites/bg/menu/1.png" id="4_uhagc"]
+[ext_resource type="Texture2D" uid="uid://cao7wcgyder4q" path="res://assets/sprites/bg/menu/3.png" id="5_btxxm"]
 
 [node name="MainMenu" type="Control" unique_id=819157659]
 layout_mode = 3
@@ -10,8 +14,30 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_1g8jr")
 script = ExtResource("1_sl1te")
 game_scene = ExtResource("2_fe2o3")
+
+[node name="ParallaxContainer" type="Node2D" parent="." unique_id=1389784675]
+scale = Vector2(2, 2)
+
+[node name="Layer1" type="Parallax2D" parent="ParallaxContainer" unique_id=81899694]
+repeat_size = Vector2(576, 0)
+autoscroll = Vector2(26, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxContainer/Layer1" unique_id=500625441]
+texture = ExtResource("4_uhagc")
+centered = false
+
+[node name="Layer2" type="Parallax2D" parent="ParallaxContainer" unique_id=1537579043]
+repeat_size = Vector2(576, 0)
+autoscroll = Vector2(20, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxContainer/Layer2" unique_id=500024406]
+texture = ExtResource("5_btxxm")
+centered = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1297883844]
 layout_mode = 1
@@ -39,11 +65,13 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Jugar"
+script = ExtResource("4_m1kxf")
 
 [node name="ExitButton" type="Button" parent="VBoxContainer" unique_id=671467275]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Salir"
+script = ExtResource("4_m1kxf")
 
 [node name="HighScoreLabel" type="Label" parent="VBoxContainer" unique_id=2140928174]
 layout_mode = 2

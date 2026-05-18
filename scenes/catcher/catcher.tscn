@@ -1,9 +1,13 @@
 [gd_scene format=3 uid="uid://c6tpagb8sk8yd"]
 
 [ext_resource type="Script" uid="uid://dnwwkju2y22ep" path="res://scripts/catcher/catcher.gd" id="1_3fklf"]
+[ext_resource type="PackedScene" uid="uid://bicye8vp4u0jo" path="res://scenes/effects/catch_particles.tscn" id="2_n7y6o"]
 [ext_resource type="Texture2D" uid="uid://dvtiindixr30s" path="res://assets/sprites/catcher/male_hero-idle.png" id="2_o0we2"]
 [ext_resource type="Texture2D" uid="uid://coj5uywc343h6" path="res://assets/sprites/catcher/male_hero-run.png" id="3_tcbsx"]
+[ext_resource type="PackedScene" uid="uid://cw4asf14iwg44" path="res://scenes/effects/damage_particles.tscn" id="3_w1s15"]
 [ext_resource type="Texture2D" uid="uid://cmhbf64ev7f04" path="res://assets/sprites/catcher/male_hero-walk.png" id="4_tld3u"]
+[ext_resource type="PackedScene" uid="uid://bufb8ex2ac0bi" path="res://scenes/effects/floating_text.tscn" id="4_w1s15"]
+[ext_resource type="PackedScene" uid="uid://cbr76abi87ccp" path="res://scenes/power_ups/hook.tscn" id="8_ibi8b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tcbsx"]
 atlas = ExtResource("2_o0we2")
@@ -241,6 +245,10 @@ size = Vector2(48, 26)
 
 [node name="Catcher" type="CharacterBody2D" unique_id=1098566866]
 script = ExtResource("1_3fklf")
+catch_particles_scene = ExtResource("2_n7y6o")
+damage_particles_scene = ExtResource("3_w1s15")
+floating_text_scene = ExtResource("4_w1s15")
+hook_scene = ExtResource("8_ibi8b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2104166775]
 scale = Vector2(2, 2)
