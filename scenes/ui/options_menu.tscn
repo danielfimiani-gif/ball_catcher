@@ -1,0 +1,131 @@
+[gd_scene format=3 uid="uid://bhaawy0x4bctv"]
+
+[ext_resource type="Theme" uid="uid://c44ksbtmn3suq" path="res://assets/themes/main_theme.tres" id="1_wj2x4"]
+[ext_resource type="Script" uid="uid://drrt63juoyv0u" path="res://scripts/ui/options_menu.gd" id="2_imaij"]
+
+[node name="Options" type="Control" unique_id=84032806]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_wj2x4")
+script = ExtResource("2_imaij")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1042631655]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0015907597, 9.776559e-09, 0.040576853, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=553289297]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -153.0
+offset_top = -231.0
+offset_right = 153.0
+offset_bottom = 231.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="Title" type="Label" parent="VBoxContainer" unique_id=1762757749]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "Opciones"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ControlsSection" type="VBoxContainer" parent="VBoxContainer" unique_id=521689954]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="VBoxContainer/ControlsSection" unique_id=1436781885]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Controles"
+horizontal_alignment = 1
+
+[node name="MoveLabel" type="Label" parent="VBoxContainer/ControlsSection" unique_id=1288479805]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Mover : A / D ó Flechas"
+horizontal_alignment = 1
+
+[node name="HookLabel" type="Label" parent="VBoxContainer/ControlsSection" unique_id=826617351]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Gancho: Click Izquierdo"
+horizontal_alignment = 1
+
+[node name="PauseLabel" type="Label" parent="VBoxContainer/ControlsSection" unique_id=129237014]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Pausa: Esc"
+horizontal_alignment = 1
+
+[node name="AudioSection" type="VBoxContainer" parent="VBoxContainer" unique_id=1577537960]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="VBoxContainer/AudioSection" unique_id=1849698425]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Audio"
+horizontal_alignment = 1
+
+[node name="Master" type="HBoxContainer" parent="VBoxContainer/AudioSection" unique_id=23989923]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="VBoxContainer/AudioSection/Master" unique_id=597116860]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Master"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/AudioSection/Master" unique_id=1979248677]
+custom_minimum_size = Vector2(300, 30)
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+
+[node name="SFX" type="HBoxContainer" parent="VBoxContainer/AudioSection" unique_id=1424788241]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="VBoxContainer/AudioSection/SFX" unique_id=552991131]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "SFX"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/AudioSection/SFX" unique_id=324950971]
+custom_minimum_size = Vector2(300, 30)
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+
+[node name="Music" type="HBoxContainer" parent="VBoxContainer/AudioSection" unique_id=1156067662]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="VBoxContainer/AudioSection/Music" unique_id=408065860]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Music"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/AudioSection/Music" unique_id=1873370389]
+custom_minimum_size = Vector2(300, 30)
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+
+[node name="BackButton" type="Button" parent="VBoxContainer" unique_id=1849548766]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Vovler"

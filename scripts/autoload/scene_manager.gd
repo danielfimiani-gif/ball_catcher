@@ -4,6 +4,7 @@ const FADE_DURATION: float = 0.3
 
 var scenes: Dictionary = {
     "main_menu": "res://scenes/ui/main_menu.tscn",
+    "options": "res://scenes/ui/options_menu.tscn",
     "game": "res://scenes/main.tscn",
     "end_game": "res://scenes/ui/end_game.tscn"
 }

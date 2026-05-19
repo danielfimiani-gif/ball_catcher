@@ -67,6 +67,12 @@ theme_override_font_sizes/font_size = 30
 text = "Jugar"
 script = ExtResource("4_m1kxf")
 
+[node name="OptionsButton" type="Button" parent="VBoxContainer" unique_id=1476558428]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Opciones"
+script = ExtResource("4_m1kxf")
+
 [node name="ExitButton" type="Button" parent="VBoxContainer" unique_id=671467275]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30

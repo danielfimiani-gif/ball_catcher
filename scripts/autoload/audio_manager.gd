@@ -1,5 +1,7 @@
 extends Node
 
+const SETTINGS_PATH: String = "user://settings.cfg"
+
 # === MUSIC ===
 const MUSIC_MENU: AudioStream = preload("res://assets/audio/music/menu.mp3")
 const MUSIC_GAME: AudioStream = preload("res://assets/audio/music/game.mp3")
@@ -32,10 +34,11 @@ var music_player = AudioStreamPlayer
 var current_music: String = ""
 
 func _ready() -> void:
+    process_mode = Node.PROCESS_MODE_ALWAYS
     music_player = AudioStreamPlayer.new()
     music_player.bus = "Music"
     add_child(music_player)
-    process_mode = Node.PROCESS_MODE_ALWAYS
+    _load_settings()
     pass
 
 func _play_music(track_name: String) -> void:
@@ -72,4 +75,27 @@ func _play_sfx(sfx_name: String, pitch_variation: float = 0.0) -> void:
     add_child(player)
     player.finished.connect(player.queue_free)
     player.play()
+    pass
+
+func _load_settings() -> void:
+    var config := ConfigFile.new()
+    var err := config.load(SETTINGS_PATH)
+    if err != OK:
+        return
+    
+    var master_db: float = config.get_value("audio", "master_db", 0.0)
+    var music_db: float = config.get_value("audio", "music_db", 0.0)
+    var sfx_db: float = config.get_value("audio", "sfx_db", 0.0)
+
+    AudioServer.set_bus_volume_db(0, master_db)
+    AudioServer.set_bus_volume_db(1, music_db)
+    AudioServer.set_bus_volume_db(2, sfx_db)
+    pass
+
+func _save_settings() -> void:
+    var config = ConfigFile.new()
+    config.set_value("audio", "master_db", AudioServer.get_bus_volume_db(0))
+    config.set_value("audio", "music_db", AudioServer.get_bus_volume_db(1))
+    config.set_value("audio", "sfx_db", AudioServer.get_bus_volume_db(2))
+    config.save(SETTINGS_PATH)
     pass
