@@ -12,6 +12,9 @@ func _ready() -> void:
     resume_button.mouse_entered.connect(_on_button_hover)
     menu_button.mouse_entered.connect(_on_button_hover)
     exit_button.mouse_entered.connect(_on_button_hover)
+
+    if OS.has_feature("web"):
+        exit_button.visible = false
     pass
 
 func _input(event: InputEvent) -> void:

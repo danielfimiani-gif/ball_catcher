@@ -73,6 +73,20 @@ Las fases están ordenadas por costo/impacto. No es obligatorio hacerlas en orde
 - [ ] Sprites mejorados (si hace falta reemplazar los actuales)
 - [ ] Iconos coherentes con el estilo
 
+## Fase 9 — Pause Menu
+
+- [x] Menú de pausa (ESC) con Continuar / Volver al menú / Salir
+- [x] `process_mode = Always` para detectar ESC durante gameplay
+- [x] `AudioManager` y `SceneManager` con `PROCESS_MODE_ALWAYS` para funcionar pausados
+
+## Fase 10 — Menú de opciones
+
+- [x] Botón "Opciones" en main_menu + ruta en SceneManager
+- [x] Escena con sección de Controles (info) y Audio (sliders Master/Music/SFX)
+- [x] Persistencia en `user://settings.cfg` (ConfigFile)
+- [x] Save automático al salir de Options (`_exit_tree`)
+- [x] Load automático al arrancar el juego (en `AudioManager._ready`)
+
 ## Fase 7 — Refinamientos finales
 
 - [x] Cuenta regresiva "3, 2, 1, GO!" al iniciar partida (con SFX + tween de scale + fade)

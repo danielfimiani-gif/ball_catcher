@@ -18,6 +18,10 @@ func _ready() -> void:
 
 	highscore_label.text = "HighScore : " + str(GameState.highscore)
 	AudioManager._play_music("menu")
+
+	if OS.has_feature("web"):
+		exit_button.visible = false
+
 	_animate_entrance()
 	pass
 
